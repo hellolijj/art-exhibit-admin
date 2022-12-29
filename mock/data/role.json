@@ -1,0 +1,25 @@
+[
+    { 
+        "name": "超级管理员", 
+        "exhibit": 1,
+        "production": 0,
+        "memtor": 1,
+        "user": 1,
+        "role":1
+    },
+    { 
+        "name": "管理员（老师）", 
+        "exhibit": 1,
+        "production": 0,
+        "memtor": 1,
+        "user": 1,
+        "role":1
+    },{ 
+        "name": "普通用户（学生）", 
+        "exhibit": 1,
+        "production": 0,
+        "memtor": 1,
+        "user": 1,
+        "role":1
+    }
+]

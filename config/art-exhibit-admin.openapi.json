@@ -1,0 +1,3725 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "art-exhibit-admin",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "memtor"
+    },
+    {
+      "name": "user"
+    },
+    {
+      "name": "resource"
+    },
+    {
+      "name": "exhibit"
+    },
+    {
+      "name": "production"
+    },
+    {
+      "name": "author"
+    },
+    {
+      "name": "role"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "base/ErrResp"
+    }
+  ],
+  "paths": {
+    "/api/memtor/{id}": {
+      "get": {
+        "summary": "get导师信息",
+        "x-apifox-folder": "memtor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "get查询导师信息",
+        "tags": [
+          "memtor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "序号",
+            "required": true,
+            "example": "123",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMAC4Y8HAEKD558XNTJSXDP5": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMAC4Y8HAEKD558XNTJSXDP5"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数不正确",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "记录不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-54914229-run"
+      },
+      "delete": {
+        "summary": "删除导师",
+        "x-apifox-folder": "memtor",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "删除导师信息",
+        "tags": [
+          "memtor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-54944230-run"
+      }
+    },
+    "/api/memtor": {
+      "post": {
+        "summary": "新增一条导师信息",
+        "x-apifox-folder": "memtor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "新增导师细腻",
+        "tags": [
+          "memtor"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMA692MXDWF258JB188M1N54": {
+                    "$ref": "#/components/schemas/Memtor"
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMA692MXDWF258JB188M1N54"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "姓名",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "wid": {
+                    "description": "工号",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "tel": {
+                    "description": "联系电话",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "email": {
+                    "description": "邮箱",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "major": {
+                    "description": "指导专业",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "avatar": {
+                    "description": "个人照片",
+                    "type": "string",
+                    "maxLength": 256,
+                    "default": null
+                  },
+                  "profile": {
+                    "description": "个人简介",
+                    "type": "string",
+                    "maxLength": 256,
+                    "default": null
+                  }
+                },
+                "x-apifox-ignore-properties": [
+                  "name",
+                  "wid",
+                  "tel",
+                  "email",
+                  "major",
+                  "avatar",
+                  "profile"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": [],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "errorCode": {
+                      "type": "string"
+                    },
+                    "errorMessage": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "number"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "errorCode",
+                    "errorMessage",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数不正确",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "记录不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-54914230-run"
+      },
+      "get": {
+        "summary": "list导师列表",
+        "x-apifox-folder": "memtor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "查看导师信息列表",
+        "tags": [
+          "memtor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "序号",
+            "required": false,
+            "example": "12",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "姓名",
+            "required": false,
+            "example": "zhoushua",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "wid",
+            "in": "query",
+            "description": "工号",
+            "required": false,
+            "example": "223956",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tel",
+            "in": "query",
+            "description": "联系电话",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Memtor"
+                          }
+                        },
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "required": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "参数不正确",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "记录不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "message"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-54914231-run"
+      },
+      "put": {
+        "summary": "修改导师信息",
+        "x-apifox-folder": "memtor",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "修改导师信息",
+        "tags": [
+          "memtor"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMA6HRHEWB0E2GFCNHEBA2V7": {
+                    "$ref": "#/components/schemas/Memtor"
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMA6HRHEWB0E2GFCNHEBA2V7"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "姓名",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "wid": {
+                    "description": "工号",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "tel": {
+                    "description": "联系电话",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "email": {
+                    "description": "邮箱",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "major": {
+                    "description": "指导专业",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "avatar": {
+                    "description": "个人照片",
+                    "type": "string",
+                    "maxLength": 256,
+                    "default": null
+                  },
+                  "profile": {
+                    "description": "个人简介",
+                    "type": "string",
+                    "maxLength": 256,
+                    "default": null
+                  }
+                },
+                "x-apifox-ignore-properties": [
+                  "name",
+                  "wid",
+                  "tel",
+                  "email",
+                  "major",
+                  "avatar",
+                  "profile"
+                ]
+              },
+              "example": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-54938647-run"
+      }
+    },
+    "/api/upload": {
+      "post": {
+        "summary": "文件上传接口",
+        "x-apifox-folder": "resource",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "用户上传一个文件，返回文件在服务器中的url地址",
+        "tags": [
+          "resource"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMB5D19J1EZ9A72SJ53W5MQS": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMB5D19J1EZ9A72SJ53W5MQS"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "url"
+                      ],
+                      "required": [
+                        "url"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55054145-run"
+      }
+    },
+    "/api/user": {
+      "post": {
+        "summary": "新建用户",
+        "x-apifox-folder": "user",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMB29KNCDVXA4YQ2SRZRXDA3": {
+                    "$ref": "#/components/schemas/User",
+                    "x-apifox-overrides": {
+                      "id": null,
+                      "gmt_create": null,
+                      "gmt_modified": null,
+                      "is_del": null
+                    }
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMB29KNCDVXA4YQ2SRZRXDA3"
+                ],
+                "properties": {
+                  "username": {
+                    "description": "用户名",
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "role": {
+                    "description": "角色",
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "password": {
+                    "description": "密码",
+                    "type": "string",
+                    "maxLength": 32
+                  },
+                  "name": {
+                    "description": "姓名",
+                    "type": "string",
+                    "maxLength": 32
+                  },
+                  "tel": {
+                    "description": "联系电话",
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "email": {
+                    "description": "邮箱",
+                    "type": "string",
+                    "maxLength": 32
+                  }
+                },
+                "required": [
+                  "username",
+                  "role",
+                  "password"
+                ],
+                "x-apifox-ignore-properties": [
+                  "username",
+                  "role",
+                  "password",
+                  "name",
+                  "tel",
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55054260-run"
+      },
+      "get": {
+        "summary": "list查询用户列表",
+        "x-apifox-folder": "user",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "20",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMB2C2E2CHM6CBEWWBMKTA0A": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMB2C2E2CHM6CBEWWBMKTA0A"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-refs": {
+                        "01GMB2CT80RQBH9JEZ7EA3Z93Z": {
+                          "$ref": "#/components/schemas/list",
+                          "x-apifox-overrides": {
+                            "list": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/components/schemas/User",
+                                "x-apifox-overrides": {
+                                  "id": null,
+                                  "gmt_create": null,
+                                  "gmt_modified": null,
+                                  "is_del": null
+                                }
+                              }
+                            }
+                          },
+                          "required": [
+                            "list"
+                          ]
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "01GMB2CT80RQBH9JEZ7EA3Z93Z"
+                      ],
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/User",
+                            "x-apifox-overrides": {
+                              "id": null,
+                              "gmt_create": null,
+                              "gmt_modified": null,
+                              "is_del": null
+                            }
+                          }
+                        },
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "x-apifox-ignore-properties": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ]
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55054307-run"
+      },
+      "put": {
+        "summary": "修改用户信息",
+        "x-apifox-folder": "user",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "修改用户信息",
+        "tags": [
+          "user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMFNTHXMV3HVVN42ANFXXJ18": {
+                    "$ref": "#/components/schemas/User",
+                    "x-apifox-overrides": {
+                      "id": null,
+                      "gmt_create": null,
+                      "gmt_modified": null,
+                      "is_del": null
+                    }
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMFNTHXMV3HVVN42ANFXXJ18"
+                ],
+                "properties": {
+                  "username": {
+                    "description": "用户名",
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "role": {
+                    "description": "角色",
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767
+                  },
+                  "password": {
+                    "description": "密码",
+                    "type": "string",
+                    "maxLength": 32
+                  },
+                  "name": {
+                    "description": "姓名",
+                    "type": "string",
+                    "maxLength": 32
+                  },
+                  "tel": {
+                    "description": "联系电话",
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "email": {
+                    "description": "邮箱",
+                    "type": "string",
+                    "maxLength": 32
+                  },
+                  "is_del": {
+                    "description": "是否删除",
+                    "type": "integer",
+                    "minimum": -32768,
+                    "maximum": 32767,
+                    "default": "0"
+                  }
+                },
+                "required": [
+                  "username",
+                  "role",
+                  "password",
+                  "is_del"
+                ],
+                "x-apifox-ignore-properties": [
+                  "username",
+                  "role",
+                  "password",
+                  "name",
+                  "tel",
+                  "email",
+                  "is_del"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55253436-run"
+      }
+    },
+    "/api/user/{uid}": {
+      "get": {
+        "summary": "查询单条用户记录",
+        "x-apifox-folder": "user",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMB2HTHEGTB00B01AB9HS1Z1": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMB2HTHEGTB00B01AB9HS1Z1"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/User",
+                      "x-apifox-overrides": {
+                        "id": null,
+                        "gmt_create": null,
+                        "gmt_modified": null,
+                        "is_del": null
+                      }
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55054371-run"
+      }
+    },
+    "/api/user/{id}": {
+      "delete": {
+        "summary": "删除用户",
+        "x-apifox-folder": "user",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "删除用户",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55253379-run"
+      }
+    },
+    "/api/exhibit": {
+      "get": {
+        "summary": "list 展览列表",
+        "x-apifox-folder": "exhibit",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "list 展览列表",
+        "tags": [
+          "exhibit"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Exhibit"
+                          }
+                        },
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "required": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55260230-run"
+      },
+      "post": {
+        "summary": "新增展览",
+        "x-apifox-folder": "exhibit",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "exhibit"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMMJJ6G6N3C8RT27CRPRNT2H": {
+                    "$ref": "#/components/schemas/Exhibit"
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMMJJ6G6N3C8RT27CRPRNT2H"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "展览名称",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  },
+                  "form": {
+                    "description": "展览形式",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "on_stage": {
+                    "description": "线上展览时间",
+                    "type": "string",
+                    "maxLength": 8,
+                    "default": null
+                  },
+                  "off_stage": {
+                    "description": "线下展览时间",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "pos": {
+                    "description": "展览地点",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "upload_stage": {
+                    "description": "上传作品时间",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "type": {
+                    "description": "参展作品类型",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "major": {
+                    "description": "参展专业",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "cate": {
+                    "description": "目录分页",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "main_image": {
+                    "description": "主视觉图片",
+                    "type": "string",
+                    "maxLength": 128,
+                    "default": null
+                  },
+                  "profile": {
+                    "description": "介绍",
+                    "type": "string",
+                    "maxLength": 256,
+                    "default": null
+                  },
+                  "state": {
+                    "description": "参展状态",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26,
+                    "default": null
+                  },
+                  "upload_state": {
+                    "description": "上传状态",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26,
+                    "default": null
+                  }
+                },
+                "x-apifox-ignore-properties": [
+                  "name",
+                  "form",
+                  "on_stage",
+                  "off_stage",
+                  "pos",
+                  "upload_stage",
+                  "type",
+                  "major",
+                  "cate",
+                  "main_image",
+                  "profile",
+                  "state",
+                  "upload_state"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55364530-run"
+      },
+      "put": {
+        "summary": "修改展览信息",
+        "x-apifox-folder": "exhibit",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "exhibit"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Exhibit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55364651-run"
+      }
+    },
+    "/api/exhibit/{id}": {
+      "get": {
+        "summary": "get 展览",
+        "x-apifox-folder": "exhibit",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "exhibit"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMMJDGQPHBH61921N8PCDWSR": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMMJDGQPHBH61921N8PCDWSR"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Exhibit"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55363855-run"
+      },
+      "delete": {
+        "summary": "删除展览",
+        "x-apifox-folder": "exhibit",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "exhibit"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55364021-run"
+      }
+    },
+    "/api/production": {
+      "get": {
+        "summary": "list 作品列表",
+        "x-apifox-folder": "production",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "production"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Production"
+                          }
+                        },
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "required": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55376545-run"
+      },
+      "post": {
+        "summary": "新增加作品",
+        "x-apifox-folder": "production",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "production"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "name",
+                  "type",
+                  "main_image",
+                  "profile",
+                  "content",
+                  "authors",
+                  "tutor"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "作品名称",
+                    "type": "string",
+                    "maxLength": 16,
+                    "default": null
+                  },
+                  "type": {
+                    "description": "作品类型",
+                    "type": "string",
+                    "maxLength": 8,
+                    "default": null
+                  },
+                  "main_image": {
+                    "description": "作品主图",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "profile": {
+                    "description": "作品介绍",
+                    "type": "string",
+                    "maxLength": 128,
+                    "default": null
+                  },
+                  "content": {
+                    "description": "作品展览",
+                    "type": "string",
+                    "maxLength": 1024,
+                    "default": null
+                  },
+                  "authors": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Author"
+                    },
+                    "description": "作品作者"
+                  },
+                  "tutor": {
+                    "description": "指导老师",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  }
+                },
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55376846-run"
+      },
+      "put": {
+        "summary": "修改作品信息",
+        "x-apifox-folder": "production",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "production"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMMM187A21TKKXPTWTGXKFMC": {
+                    "$ref": "#/components/schemas/Production"
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMMM187A21TKKXPTWTGXKFMC"
+                ],
+                "properties": {
+                  "exhibit": {
+                    "type": "string",
+                    "description": "展览名称"
+                  },
+                  "name": {
+                    "description": "作品名称",
+                    "type": "string",
+                    "maxLength": 16,
+                    "default": null
+                  },
+                  "type": {
+                    "description": "作品类型",
+                    "type": "string",
+                    "maxLength": 8,
+                    "default": null
+                  },
+                  "main_image": {
+                    "description": "作品主图",
+                    "type": "string",
+                    "maxLength": 64,
+                    "default": null
+                  },
+                  "profile": {
+                    "description": "作品介绍",
+                    "type": "string",
+                    "maxLength": 128,
+                    "default": null
+                  },
+                  "content": {
+                    "description": "作品展览",
+                    "type": "string",
+                    "maxLength": 1024,
+                    "default": null
+                  },
+                  "authors": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Author"
+                    },
+                    "description": "作品作者"
+                  },
+                  "tutor": {
+                    "description": "指导老师",
+                    "type": "string",
+                    "maxLength": 32,
+                    "default": null
+                  }
+                },
+                "required": [
+                  "exhibit"
+                ],
+                "x-apifox-ignore-properties": [
+                  "exhibit",
+                  "name",
+                  "type",
+                  "main_image",
+                  "profile",
+                  "content",
+                  "authors",
+                  "tutor"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55377218-run"
+      }
+    },
+    "/api/production/{id}": {
+      "get": {
+        "summary": "get 作品信息",
+        "x-apifox-folder": "production",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "production"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "id",
+                        "gmt_create",
+                        "gmt_modified",
+                        "name",
+                        "type",
+                        "main_image",
+                        "profile",
+                        "content",
+                        "authors",
+                        "tutor"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "自增id",
+                          "type": "integer",
+                          "minimum": -1.7014118346046923e+38,
+                          "maximum": 1.7014118346046923e+38
+                        },
+                        "gmt_create": {
+                          "description": "创建时间",
+                          "type": "string",
+                          "default": null
+                        },
+                        "gmt_modified": {
+                          "description": "修改时间",
+                          "type": "string",
+                          "default": null
+                        },
+                        "name": {
+                          "description": "作品名称",
+                          "type": "string",
+                          "maxLength": 16,
+                          "default": null
+                        },
+                        "type": {
+                          "description": "作品类型",
+                          "type": "string",
+                          "maxLength": 8,
+                          "default": null
+                        },
+                        "main_image": {
+                          "description": "作品主图",
+                          "type": "string",
+                          "maxLength": 64,
+                          "default": null
+                        },
+                        "profile": {
+                          "description": "作品介绍",
+                          "type": "string",
+                          "maxLength": 128,
+                          "default": null
+                        },
+                        "content": {
+                          "description": "作品展览",
+                          "type": "string",
+                          "maxLength": 1024,
+                          "default": null
+                        },
+                        "authors": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Author"
+                          },
+                          "description": "作品作者"
+                        },
+                        "tutor": {
+                          "description": "指导老师",
+                          "type": "string",
+                          "maxLength": 32,
+                          "default": null
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55376636-run"
+      },
+      "delete": {
+        "summary": "删除作品",
+        "x-apifox-folder": "production",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "production"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55377102-run"
+      }
+    },
+    "/api/author/{id}": {
+      "get": {
+        "summary": "get 作者信息",
+        "x-apifox-folder": "author",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "author"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMMMBCMJ561C53E1B85HE97V": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMMMBCMJ561C53E1B85HE97V"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Author"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55378112-run"
+      }
+    },
+    "/api/role/{name}": {
+      "get": {
+        "summary": "get 权限配置",
+        "x-apifox-folder": "role",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "role"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01GMNCYZ838V6F3PR2X359SYEQ": {
+                      "$ref": "#/components/schemas/Resp",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "$ref": "#/components/schemas/Memtor"
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ]
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01GMNCYZ838V6F3PR2X359SYEQ"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Role"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55435229-run"
+      },
+      "put": {
+        "summary": "修改配置",
+        "x-apifox-folder": "role",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "role"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-apifox-refs": {
+                  "01GMND12QR1BKJAB66QEAAJ7QB": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                },
+                "x-apifox-orders": [
+                  "01GMND12QR1BKJAB66QEAAJ7QB"
+                ],
+                "properties": {
+                  "exhibit": {
+                    "description": "展览管理",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26
+                  },
+                  "production": {
+                    "description": "作品上传",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26
+                  },
+                  "memtor": {
+                    "description": "导师信息",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26
+                  },
+                  "user": {
+                    "description": "用户管理",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26
+                  },
+                  "role": {
+                    "description": "权限管理",
+                    "type": "integer",
+                    "minimum": -1.5474250491067253e+26,
+                    "maximum": 1.5474250491067253e+26
+                  }
+                },
+                "required": [
+                  "exhibit",
+                  "production",
+                  "memtor",
+                  "user",
+                  "role"
+                ],
+                "x-apifox-ignore-properties": [
+                  "exhibit",
+                  "production",
+                  "memtor",
+                  "user",
+                  "role"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resp",
+                  "x-apifox-overrides": {
+                    "data": {
+                      "$ref": "#/components/schemas/Memtor"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-55435242-run"
+      }
+    },
+    "/api/login/account": {
+      "post": {
+        "summary": "登录判断",
+        "x-apifox-folder": "base",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "ant-design 原生接口 login/accout 用于判断是否登录成功，登录成功 返回角色{admin/user}",
+        "tags": [
+          "base"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string",
+                    "title": ""
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "登录类型"
+                  }
+                },
+                "x-apifox-orders": [
+                  "password",
+                  "username",
+                  "type"
+                ],
+                "required": [
+                  "password",
+                  "username",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "title": "",
+                      "description": "ok,error"
+                    },
+                    "currentAuthority": {
+                      "type": "string",
+                      "description": "guest,admin,user"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "status",
+                    "currentAuthority",
+                    "type"
+                  ],
+                  "required": [
+                    "status",
+                    "currentAuthority",
+                    "type"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例-admin用户",
+                    "value": {
+                      "status": "ok",
+                      "type": "account",
+                      "currentAuthority": "admin"
+                    }
+                  },
+                  "2": {
+                    "summary": "成功示例-登录失败",
+                    "value": {
+                      "status": "error",
+                      "type": "account",
+                      "currentAuthority": "admin"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56351931-run"
+      }
+    },
+    "/api/login/outLogin": {
+      "post": {
+        "summary": "退出登录",
+        "x-apifox-folder": "base",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-ignore-properties": [],
+                      "x-apifox-orders": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "success",
+                    "data"
+                  ],
+                  "required": [
+                    "success",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56352372-run"
+      }
+    },
+    "/api/register": {
+      "post": {
+        "summary": "注册接口",
+        "x-apifox-folder": "base",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "ok"
+                    },
+                    "currentAuthority": {
+                      "type": "string",
+                      "description": "user,admin,guest"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "status",
+                    "currentAuthority",
+                    "success"
+                  ],
+                  "required": [
+                    "status",
+                    "currentAuthority",
+                    "success"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56352425-run"
+      }
+    },
+    "/api/currentUser": {
+      "get": {
+        "summary": "当前用户",
+        "x-apifox-folder": "base",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "avatar": {
+                          "type": "string"
+                        },
+                        "userid": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "signature": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "group": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "access": {
+                          "type": "string",
+                          "description": "admin,user,guest,‘’需要登录"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "name",
+                        "avatar",
+                        "userid",
+                        "email",
+                        "signature",
+                        "title",
+                        "group",
+                        "phone",
+                        "access"
+                      ],
+                      "required": [
+                        "name",
+                        "avatar",
+                        "userid",
+                        "email",
+                        "signature",
+                        "title",
+                        "group",
+                        "phone",
+                        "access"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "success",
+                    "data"
+                  ],
+                  "required": [
+                    "success",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56352535-run"
+      }
+    },
+    "/api/users": {
+      "get": {
+        "summary": "用户列表",
+        "x-apifox-folder": "base",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "age": {
+                        "type": "integer"
+                      },
+                      "address": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "key",
+                      "name",
+                      "age",
+                      "address"
+                    ],
+                    "required": [
+                      "key",
+                      "name",
+                      "age",
+                      "address"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56352927-run"
+      }
+    },
+    "/api/500": {
+      "get": {
+        "summary": "500",
+        "x-apifox-folder": "base/ErrResp",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base/ErrResp"
+        ],
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "服务器错误",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "timestamp",
+                    "status",
+                    "error",
+                    "message",
+                    "path"
+                  ],
+                  "required": [
+                    "timestamp",
+                    "status",
+                    "error",
+                    "message",
+                    "path"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56353103-run"
+      }
+    },
+    "/api/404": {
+      "get": {
+        "summary": "404",
+        "x-apifox-folder": "base/ErrResp",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base/ErrResp"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AntResp"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56353512-run"
+      }
+    },
+    "/api/403": {
+      "get": {
+        "summary": "403",
+        "x-apifox-folder": "base/ErrResp",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base/ErrResp"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AntResp"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56353522-run"
+      }
+    },
+    "/api/401": {
+      "get": {
+        "summary": "401",
+        "x-apifox-folder": "base/ErrResp",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "base/ErrResp"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AntResp"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56353530-run"
+      }
+    },
+    "/api/role": {
+      "get": {
+        "summary": "list 权限配置",
+        "x-apifox-folder": "role",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "role"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "true 返回成功 false 返回失败"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Role"
+                          }
+                        },
+                        "current": {
+                          "type": "integer"
+                        },
+                        "pageSize": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "required": [
+                        "list",
+                        "current",
+                        "pageSize",
+                        "total"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "showType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "code",
+                    "message",
+                    "showType"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2087222/apis/api-56534120-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AntResp": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "timestamp",
+          "status",
+          "error",
+          "message",
+          "path"
+        ],
+        "required": [
+          "timestamp",
+          "status",
+          "error",
+          "message",
+          "path"
+        ],
+        "title": "antResp",
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "Role": {
+        "$comment": "JSON Schema for role table",
+        "$id": "role",
+        "title": "role",
+        "type": "object",
+        "required": [
+          "exhibit",
+          "production",
+          "memtor",
+          "user",
+          "role",
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "角色名称"
+          },
+          "exhibit": {
+            "description": "展览管理",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "production": {
+            "description": "作品上传",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "memtor": {
+            "description": "导师信息",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "user": {
+            "description": "用户管理",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "role": {
+            "description": "权限管理",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          }
+        },
+        "x-apifox-orders": [
+          "name",
+          "exhibit",
+          "production",
+          "memtor",
+          "user",
+          "role"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      },
+      "Author": {
+        "$comment": "JSON Schema for author table",
+        "$id": "author",
+        "title": "author",
+        "description": "作者",
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "description": "自增id",
+            "type": "integer",
+            "minimum": -3.961408125713217e+28,
+            "maximum": 3.961408125713217e+28,
+            "title": ""
+          },
+          "gmt_create": {
+            "description": "创建时间",
+            "type": "string",
+            "default": null
+          },
+          "gmt_modified": {
+            "description": "修改时间",
+            "type": "string",
+            "default": null
+          },
+          "name": {
+            "description": "姓名",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "school": {
+            "description": "学校",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "college": {
+            "description": "学院",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "major": {
+            "description": "专业",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "grade": {
+            "description": "年级",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "class": {
+            "type": "string",
+            "description": "班级"
+          },
+          "memtor": {
+            "description": "指导老师",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "email": {
+            "description": "邮箱",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "avator": {
+            "description": "个人照片",
+            "type": "string",
+            "maxLength": 128,
+            "default": null
+          },
+          "profile": {
+            "description": "个人简介",
+            "type": "string",
+            "maxLength": 256,
+            "default": null
+          },
+          "work": {
+            "description": "负责内容",
+            "type": "string",
+            "maxLength": 128,
+            "default": null
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "name",
+          "school",
+          "college",
+          "major",
+          "grade",
+          "class",
+          "memtor",
+          "email",
+          "avator",
+          "profile",
+          "work"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      },
+      "Production": {
+        "$comment": "JSON Schema for production table",
+        "$id": "production",
+        "title": "production",
+        "description": "作品内容",
+        "type": "object",
+        "required": [
+          "id",
+          "exhibit"
+        ],
+        "properties": {
+          "id": {
+            "description": "自增id",
+            "type": "integer",
+            "minimum": -1.7014118346046923e+38,
+            "maximum": 1.7014118346046923e+38
+          },
+          "gmt_create": {
+            "description": "创建时间",
+            "type": "string",
+            "default": null
+          },
+          "gmt_modified": {
+            "description": "修改时间",
+            "type": "string",
+            "default": null
+          },
+          "exhibit": {
+            "type": "string",
+            "description": "展览名称"
+          },
+          "name": {
+            "description": "作品名称",
+            "type": "string",
+            "maxLength": 16,
+            "default": null
+          },
+          "type": {
+            "description": "作品类型",
+            "type": "string",
+            "maxLength": 8,
+            "default": null
+          },
+          "main_image": {
+            "description": "作品主图",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "profile": {
+            "description": "作品介绍",
+            "type": "string",
+            "maxLength": 128,
+            "default": null
+          },
+          "content": {
+            "description": "作品展览",
+            "type": "string",
+            "maxLength": 1024,
+            "default": null
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Author"
+            },
+            "description": "作品作者"
+          },
+          "tutor": {
+            "description": "指导老师",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "exhibit",
+          "name",
+          "type",
+          "main_image",
+          "profile",
+          "content",
+          "authors",
+          "tutor"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      },
+      "Exhibit": {
+        "$comment": "JSON Schema for exhibit table",
+        "$id": "exhibit",
+        "title": "exhibit",
+        "description": "展览",
+        "type": "object",
+        "required": [
+          "id",
+          "gmt_create",
+          "gmt_modified"
+        ],
+        "properties": {
+          "id": {
+            "description": "自增id",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "gmt_create": {
+            "description": "创建时间",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "gmt_modified": {
+            "description": "修改时间",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26
+          },
+          "name": {
+            "description": "展览名称",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "form": {
+            "description": "展览形式",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "on_stage": {
+            "description": "线上展览时间",
+            "type": "string",
+            "maxLength": 8,
+            "default": null
+          },
+          "off_stage": {
+            "description": "线下展览时间",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "pos": {
+            "description": "展览地点",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "upload_stage": {
+            "description": "上传作品时间",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "type": {
+            "description": "参展作品类型",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "major": {
+            "description": "参展专业",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "cate": {
+            "description": "目录分页",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "main_image": {
+            "description": "主视觉图片",
+            "type": "string",
+            "maxLength": 128,
+            "default": null
+          },
+          "profile": {
+            "description": "介绍",
+            "type": "string",
+            "maxLength": 256,
+            "default": null
+          },
+          "state": {
+            "description": "参展状态",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26,
+            "default": null
+          },
+          "upload_state": {
+            "description": "上传状态",
+            "type": "integer",
+            "minimum": -1.5474250491067253e+26,
+            "maximum": 1.5474250491067253e+26,
+            "default": null
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "name",
+          "form",
+          "on_stage",
+          "off_stage",
+          "pos",
+          "upload_stage",
+          "type",
+          "major",
+          "cate",
+          "main_image",
+          "profile",
+          "state",
+          "upload_state"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      },
+      "User": {
+        "$comment": "JSON Schema for user table",
+        "$id": "user",
+        "title": "user",
+        "description": "用户信息表",
+        "type": "object",
+        "required": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "username",
+          "role",
+          "password",
+          "is_del"
+        ],
+        "properties": {
+          "id": {
+            "$comment": "primary key",
+            "description": "自增id",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9223372036854776000
+          },
+          "gmt_create": {
+            "description": "创建时间",
+            "type": "string"
+          },
+          "gmt_modified": {
+            "description": "修改时间",
+            "type": "string"
+          },
+          "username": {
+            "description": "用户名",
+            "type": "string",
+            "maxLength": 16
+          },
+          "role": {
+            "description": "角色",
+            "type": "integer",
+            "minimum": -32768,
+            "maximum": 32767
+          },
+          "password": {
+            "description": "密码",
+            "type": "string",
+            "maxLength": 32
+          },
+          "name": {
+            "description": "姓名",
+            "type": "string",
+            "maxLength": 32
+          },
+          "tel": {
+            "description": "联系电话",
+            "type": "string",
+            "maxLength": 16
+          },
+          "email": {
+            "description": "邮箱",
+            "type": "string",
+            "maxLength": 32
+          },
+          "is_del": {
+            "description": "是否删除",
+            "type": "integer",
+            "minimum": -32768,
+            "maximum": 32767,
+            "default": "0"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "username",
+          "role",
+          "password",
+          "name",
+          "tel",
+          "email",
+          "is_del"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      },
+      "list": {
+        "type": "object",
+        "properties": {
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "null"
+            }
+          },
+          "current": {
+            "type": "integer"
+          },
+          "pageSize": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "title": "list",
+        "x-apifox-orders": [
+          "list",
+          "current",
+          "pageSize",
+          "total"
+        ],
+        "required": [
+          "list",
+          "current",
+          "pageSize",
+          "total"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "Resp": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "",
+            "description": "true 返回成功 false 返回失败"
+          },
+          "data": {
+            "type": "object",
+            "properties": {},
+            "x-apifox-orders": [],
+            "x-apifox-ignore-properties": []
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "showType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "success",
+          "data",
+          "code",
+          "message",
+          "showType"
+        ],
+        "x-apifox-orders": [
+          "success",
+          "data",
+          "code",
+          "message",
+          "showType"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "Memtor": {
+        "$comment": "JSON Schema for memtor table",
+        "$id": "memtor",
+        "title": "memtor",
+        "description": "导师信息表",
+        "type": "object",
+        "required": [
+          "id",
+          "gmt_create",
+          "gmt_modified"
+        ],
+        "properties": {
+          "id": {
+            "description": "自增id",
+            "type": "integer",
+            "minimum": -9223372036854776000,
+            "maximum": 9223372036854776000,
+            "title": ""
+          },
+          "gmt_create": {
+            "description": "创建时间",
+            "type": "string",
+            "default": "CURRENT_TIMESTAMP(6)"
+          },
+          "gmt_modified": {
+            "description": "修改时间",
+            "type": "string",
+            "default": "CURRENT_TIMESTAMP(6)"
+          },
+          "name": {
+            "description": "姓名",
+            "type": "string",
+            "maxLength": 64,
+            "default": null
+          },
+          "wid": {
+            "description": "工号",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "tel": {
+            "description": "联系电话",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "email": {
+            "description": "邮箱",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "major": {
+            "description": "指导专业",
+            "type": "string",
+            "maxLength": 32,
+            "default": null
+          },
+          "avatar": {
+            "description": "个人照片",
+            "type": "string",
+            "maxLength": 256,
+            "default": null
+          },
+          "profile": {
+            "description": "个人简介",
+            "type": "string",
+            "maxLength": 256,
+            "default": null
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "gmt_create",
+          "gmt_modified",
+          "name",
+          "wid",
+          "tel",
+          "email",
+          "major",
+          "avatar",
+          "profile"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "data"
+      }
+    }
+  },
+  "servers": []
+}

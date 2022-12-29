@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "gmt_create": "",
+    "gmt_modified": "",
+    "username": "Brown",
+    "role": 2,
+    "password": "string(16)",
+    "name": "田洋",
+    "tel": "13456789521",
+    "email": "y.mvsovg@eux.pg",
+    "is_del": 0
+  }
+]
